@@ -47,7 +47,7 @@ function Home() {
  <section className="cinema-hero">
   <div className="hero-topline"><span>AN INDEPENDENT HUMAN STORY ARCHIVE</span><span>VOL. 01 — 2026</span></div>
   <div className="hero-frame">
-   <div className="hero-visual"><img src={settings.hero_image||"https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1800&q=90"} alt="Monochrome documentary portrait"/><div className="hero-visual-shade"></div><span className="hero-photo-credit">PORTRAIT STUDY / VISUAL REFERENCE</span></div>
+   <div className="hero-visual"><img src={settings.hero_image||"https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1800&q=90"} alt="Editorial portrait of a Black man in a dark turtleneck"/><div className="hero-visual-shade"></div><span className="hero-photo-credit">PORTRAIT STUDY / VISUAL REFERENCE</span></div>
    <div className="hero-title"><span className="eyebrow">PEOPLE. PERSPECTIVES. LEGACY.</span><h1>{settings.hero_line_one||"Every life"}<br/>{settings.hero_line_two||"leaves a"} <em>{settings.hero_highlight||"mark."}</em></h1><p>{settings.hero_intro||"We document the people behind the moments, the conviction behind the work, and the lessons that deserve to outlive the telling."}</p><a className="hero-discover" href="#journal">ENTER THE JOURNAL <ArrowDown size={16}/></a></div>
    <div className="hero-side-note">STORIES BEHIND THE PEOPLE<br/>LESSONS BEYOND THE JOURNEY</div>
   </div>
