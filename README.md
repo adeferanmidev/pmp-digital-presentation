@@ -1,43 +1,47 @@
 # Photographing Monumental People
 
-**Tagline:** Stories Behind the People. Lessons Beyond the Journey.
+**Stories Behind the People. Lessons Beyond the Journey.**
 
-A cinematic, mobile-first digital magazine and publishing platform documenting people through intentional portrait photography, interviews, personal histories, perspectives, and lessons.
+A photography-led digital magazine and publishing platform preserving human stories through intentional portraiture and considered conversations.
 
-## Product direction
+## Current build
+- Editorial homepage, responsive navigation, story discovery, category filters and search
+- Individual story pages with cover image, introduction, editorial content and return navigation
+- Editorial sign-in at `/admin`
+- Create, edit, publish, unpublish and delete stories
+- Cover photograph uploads to Supabase Storage
+- Supabase Postgres schema with separate editor access grants and row-level security
+- Demo content is clearly temporary and must be replaced with approved PMP stories
 
-This is a publishing platform, not a one-off presentation website.
+## Stack
+React, TypeScript, Vite, Supabase Auth/Postgres/Storage, Cloudflare Pages.
 
-### Public magazine
-- Editorial homepage featuring the latest stories, selected features, and categories
-- Search and story discovery
-- Individual feature pages for each person
-- Portrait galleries, behind-the-scenes media, edited interviews, selected quotes, and related stories
-- Responsive layouts for phones, tablets, and desktop
-- Shareable pages with social preview metadata
+## Local development
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
+Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in `.env.local`. Use only the Supabase publishable key (or legacy anon key) in the browser. Never expose a service-role or secret key.
 
-### Publishing dashboard
-- Secure administrator sign-in
-- Create, edit, preview, publish, unpublish, and remove stories
-- Upload and organize photographs and other media
-- Manage categories, homepage sections, pages, site text, branding, and contact/social links
-- A straightforward visual content editor with configurable sections and content blocks
+## Database and first editor
+The initial database migration is in `supabase/schema.sql`. It has already been applied to the PMP Supabase project.
 
-## Editorial identity
+To grant the first editor:
+1. Create the editor's user in Supabase Authentication.
+2. Copy that user's UUID.
+3. In the Supabase SQL Editor, run:
+```sql
+insert into public.editor_users (user_id)
+values ('PASTE_AUTH_USER_UUID_HERE')
+on conflict (user_id) do nothing;
+```
+Only users listed in `editor_users` can manage stories or upload media. Do not grant editor access to public visitors.
 
-- **Visual direction:** Cinematic, photography-led, premium editorial
-- **Story approach:** Thoughtful, human, and substantial; not limited to celebrities or public figures
-- **Tagline:** Stories Behind the People. Lessons Beyond the Journey.
+## Cloudflare Pages
+Build command: `npm run build`
+Output directory: `dist`
+Add the two public Supabase environment variables above in the Pages project settings.
 
-## Development principles
-
-- Mobile-first and performance-conscious
-- Accessible navigation and readable editorial typography
-- Secure authentication and role-based publishing permissions
-- Media storage and database access protected by explicit access policies
-- Keep the public website fast; load large galleries efficiently
-- Do not publish proposed features or imply a subject's endorsement without their confirmation
-
-## Status
-
-Project repository initialized. Product requirements are being translated into the technical foundation and first working release.
+## Editorial integrity
+Pastor Steve Ogah is a proposed feature only. Do not publish a feature or imply his endorsement until he explicitly confirms participation.
