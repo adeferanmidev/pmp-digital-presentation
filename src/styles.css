@@ -176,3 +176,9 @@ body{background:var(--bg);color:var(--text);transition:background .25s,color .25
 .site-editor-form>.button-dark{grid-column:1/-1;display:flex;align-items:center;gap:8px;justify-self:start}
 @media(max-width:850px){.site-editor-form{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.site-editor{padding:20px}.site-editor-form{grid-template-columns:1fr}}
+
+html[data-theme="light"] .hero-visual{inset:0 48% 0 0}
+html[data-theme="light"] .hero-visual-shade{background:linear-gradient(90deg,rgba(0,0,0,.06),transparent 75%)}
+html[data-theme="light"] .hero-title h1,html[data-theme="light"] .hero-title p,html[data-theme="light"] .hero-discover{color:var(--text)}
+html[data-theme="light"] .hero-title h1 em{color:var(--accent)}
+@media(prefers-color-scheme:light){html[data-theme="system"] .hero-visual{inset:0 48% 0 0}html[data-theme="system"] .hero-visual-shade{background:linear-gradient(90deg,rgba(0,0,0,.06),transparent 75%)}html[data-theme="system"] .hero-title h1,html[data-theme="system"] .hero-title p,html[data-theme="system"] .hero-discover{color:var(--text)}html[data-theme="system"] .hero-title h1 em{color:var(--accent)}}
