@@ -73,11 +73,11 @@ for all to authenticated using (public.is_pmp_editor()) with check (public.is_pm
 create policy "Public can read categories" on public.categories
 for select using (true);
 create policy "Editors manage categories" on public.categories
-for all to authenticated using (true) with check (true);
+for all to authenticated using (public.is_pmp_editor()) with check (public.is_pmp_editor());
 create policy "Public can read site settings" on public.site_settings
 for select using (true);
 create policy "Editors manage site settings" on public.site_settings
-for all to authenticated using (true) with check (true);
+for all to authenticated using (public.is_pmp_editor()) with check (public.is_pmp_editor());
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values ('pmp-media','pmp-media',true,10485760,array['image/jpeg','image/png','image/webp'])
