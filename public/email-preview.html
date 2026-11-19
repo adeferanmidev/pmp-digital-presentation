@@ -29,6 +29,42 @@
 .visual{border:1px solid var(--line);background:var(--panel);overflow:hidden}.visual img{display:block;width:100%;aspect-ratio:1200/630;object-fit:cover;filter:none}.visual-caption{padding:26px 28px 30px}.eyebrow{font-size:10px;letter-spacing:.2em;color:#b4a88f;text-transform:uppercase}.visual h2{font:400 clamp(28px,5vw,48px)/1.08 Georgia,serif;margin:12px 0}.visual p{color:#bcb7ad;max-width:650px;margin:0}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.button{display:inline-block;text-decoration:none;padding:13px 19px;background:var(--paper);color:#171714;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase}.button.secondary{border:1px solid #777268;background:transparent;color:var(--paper)}
 .copy{margin-top:38px;border-top:1px solid var(--line);padding-top:24px}.copy h3{font:400 27px Georgia,serif;margin:0 0 12px}.copy p{color:#c4bfb5;max-width:720px}.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:#8e897f;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:600px){.page{padding:22px 16px 50px}.visual-caption{padding:20px}.top{align-items:flex-start;flex-direction:column}.hero{margin-top:34px}}
+
+/* Consistent editorial alignment and responsive behavior */
+.page{width:min(100%,1000px);margin-inline:auto;padding:clamp(22px,4vw,42px) clamp(16px,4vw,28px) 70px}
+.top{min-width:0}
+.brand,.tag{overflow-wrap:anywhere}
+.hero{margin:clamp(28px,5vw,48px) 0 24px}
+.hero h1{max-width:15ch;text-wrap:balance;line-height:1.04}
+.hero p{max-width:62ch;line-height:1.8;margin:0}
+.visual{width:100%;border-radius:2px}
+.visual img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}
+.visual-caption{padding:clamp(20px,4vw,32px);text-align:left}
+.visual h2{max-width:18ch;text-wrap:balance;line-height:1.08}
+.visual p,.copy p{max-width:68ch;line-height:1.85}
+.copy{margin-top:clamp(28px,5vw,42px)}
+.copy h3{line-height:1.2}
+.actions{align-items:center}
+.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+@media(max-width:600px){
+ .page{padding:20px 16px 44px}
+ .top{align-items:flex-start;gap:8px}
+ .brand{font-size:10px;letter-spacing:.12em;max-width:260px}
+ .tag{font-size:9px;letter-spacing:.1em}
+ .hero{margin:30px 0 22px}
+ .hero h1{font-size:clamp(36px,10vw,48px);line-height:1.04;max-width:13ch;margin:12px 0 15px}
+ .hero p{font-size:14px;line-height:1.75}
+ .visual img{aspect-ratio:4/5;object-position:center 35%}
+ .visual-caption{padding:20px 18px 22px}
+ .visual h2{font-size:clamp(27px,8vw,36px);line-height:1.08}
+ .visual p,.copy p{font-size:14px;line-height:1.8}
+ .actions{flex-direction:column;align-items:stretch}
+ .button{width:100%;min-height:46px}
+ .copy{padding-top:20px}
+ .copy h3{font-size:25px}
+ .footer{font-size:9px;line-height:1.7}
+}
+@media(max-width:360px){.page{padding-inline:13px}.brand{font-size:9px}.hero h1{font-size:35px}}
 </style>
 </head>
 <body>
