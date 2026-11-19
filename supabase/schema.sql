@@ -51,13 +51,25 @@ alter table public.site_settings enable row level security;
 create policy "Public can read published stories" on public.stories
 for select using (status = 'published');
 
--- Authenticated editorial users can manage stories and related content.
+-- Editor access is explicitly granted to selected Auth users.
+create table if not exists public.editor_users (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+alter table public.editor_users enable row level security;
+create or replace function public.is_pmp_editor()
+returns boolean language sql stable security definer set search_path = public
+as $ select exists (select 1 from public.editor_users where user_id = (select auth.uid())); $;
+revoke all on function public.is_pmp_editor() from public;
+grant execute on function public.is_pmp_editor() to authenticated;
+create policy "Editors can read their own grant" on public.editor_users
+for select to authenticated using (user_id = (select auth.uid()));
 create policy "Editors manage stories" on public.stories
-for all to authenticated using (true) with check (true);
+for all to authenticated using (public.is_pmp_editor()) with check (public.is_pmp_editor());
 create policy "Public can read media for published stories" on public.story_media
 for select using (exists (select 1 from public.stories s where s.id = story_id and s.status = 'published'));
 create policy "Editors manage story media" on public.story_media
-for all to authenticated using (true) with check (true);
+for all to authenticated using (public.is_pmp_editor()) with check (public.is_pmp_editor());
 create policy "Public can read categories" on public.categories
 for select using (true);
 create policy "Editors manage categories" on public.categories
@@ -71,9 +83,9 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('pmp-media','pmp-media',true,10485760,array['image/jpeg','image/png','image/webp'])
 on conflict (id) do nothing;
 create policy "Public read PMP media" on storage.objects for select using (bucket_id = 'pmp-media');
-create policy "Editors upload PMP media" on storage.objects for insert to authenticated with check (bucket_id = 'pmp-media');
-create policy "Editors update PMP media" on storage.objects for update to authenticated using (bucket_id = 'pmp-media') with check (bucket_id = 'pmp-media');
-create policy "Editors delete PMP media" on storage.objects for delete to authenticated using (bucket_id = 'pmp-media');
+create policy "Editors upload PMP media" on storage.objects for insert to authenticated with check (bucket_id = 'pmp-media' and public.is_pmp_editor());
+create policy "Editors update PMP media" on storage.objects for update to authenticated using (bucket_id = 'pmp-media' and public.is_pmp_editor()) with check (bucket_id = 'pmp-media' and public.is_pmp_editor());
+create policy "Editors delete PMP media" on storage.objects for delete to authenticated using (bucket_id = 'pmp-media' and public.is_pmp_editor());
 
 insert into public.categories (name,slug,display_order) values
 ('Faith & Purpose','faith-purpose',1),('Enterprise','enterprise',2),('Culture','culture',3),
