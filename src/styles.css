@@ -129,3 +129,33 @@ body{background:var(--bg);color:var(--text);transition:background .25s,color .25
 .invitation-side span{display:block;font:8px 'DM Sans',sans-serif;letter-spacing:.17em;color:#403525}
 @media(max-width:850px){.nav{gap:18px}.theme-control summary span{display:none}.hero-frame{min-height:570px}.opening-note{padding:90px 7%}.portrait-tile img{height:350px}.journal-top{align-items:flex-start;flex-direction:column}.cover-feature{grid-template-columns:1fr}.cover-feature-image{height:400px}.cover-feature-copy{min-height:330px}.journal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.world-card-large{min-height:500px}.manifesto-long{padding:100px 7%}.invitation-cinema{padding:90px 7%}}
 @media(max-width:620px){.cinema-hero{padding:18px 5% 22px;min-height:auto}.hero-topline,.hero-footline{font-size:7px;letter-spacing:.1em}.hero-topline span:nth-child(2),.hero-footline span:nth-child(2){display:none}.hero-frame{display:block;min-height:690px;margin:18px 0}.hero-visual{inset:0 0 120px 0}.hero-visual-shade{background:linear-gradient(0deg,var(--bg),transparent 75%),linear-gradient(90deg,rgba(0,0,0,.2),transparent)}.hero-title{position:absolute;left:8%;right:5%;bottom:0;padding:0}.hero-title h1{font-size:70px;margin:18px 0}.hero-title p{font-size:12px;max-width:320px}.hero-side-note{right:-4px;top:20%;font-size:7px}.hero-photo-credit{font-size:7px}.opening-note{padding:75px 7%;grid-template-columns:1fr;gap:22px}.opening-copy h2,.journal-top h2,.editorial-world-head h2{font-size:46px}.portrait-interlude{padding:75px 5%}.portrait-heading{display:block}.portrait-heading>p{font-size:25px;margin-top:20px}.portrait-triptych{grid-template-columns:1fr 1fr;gap:10px}.portrait-tile-1{margin-top:35px}.portrait-tile-2{grid-column:1/-1;margin:0 12%}.portrait-tile img{height:270px}.portrait-tile-2 img{height:340px}.journal-section{padding:80px 5%}.journal-top{gap:18px;margin-bottom:35px}.journal-toolbar{align-items:flex-start;flex-direction:column}.journal-toolbar .filters{gap:12px}.journal-toolbar .filter{font-size:10px}.cover-feature-image{height:300px}.cover-feature-copy{padding:30px}.cover-feature-copy h3{font-size:45px}.journal-grid{grid-template-columns:1fr;gap:36px}.journal-card-image{height:340px}.editorial-world{padding:75px 5%}.editorial-world-head{display:block}.editorial-world-grid{grid-template-columns:1fr}.world-card,.world-card-large{min-height:280px;grid-row:auto}.world-card-wide{grid-column:auto}.world-card>svg{margin-top:35px}.manifesto-long{padding:80px 7%}.manifesto-long h2{font-size:49px;margin:28px 0 35px}.manifesto-long-bottom{grid-template-columns:1fr;gap:25px}.invitation-cinema{padding:75px 7%}.invitation-cinema h2{font-size:56px}.invitation-side{display:none}.theme-options{position:fixed;top:75px;right:5%;min-width:190px}.nav{align-items:stretch}.theme-control summary span{display:inline}.theme-control{width:100%}.theme-control summary{width:max-content}.theme-options{position:static;margin-top:8px}}
+
+.owner-panel{background:var(--panel);border:1px solid var(--line);padding:30px;margin:0 0 55px}
+.owner-panel-heading{display:flex;justify-content:space-between;align-items:center;color:var(--accent)}
+.owner-panel-heading h2{font:500 30px 'Playfair Display',serif;color:var(--text);margin:12px 0 0}
+.owner-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.owner-summary>div{background:var(--bg);padding:20px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.owner-summary span{font-size:8px;letter-spacing:.15em;color:var(--soft)}
+.owner-summary strong{font:500 24px 'Playfair Display',serif;color:var(--text)}
+.owner-summary small{font-size:10px;color:var(--muted)}
+.owner-summary button,.owner-summary a{font-size:10px;color:var(--accent);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.owner-admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.owner-admin-grid h3{font:500 21px 'Playfair Display',serif;color:var(--text);margin:20px 0}
+.owner-admin-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px 0;border-bottom:1px solid var(--line)}
+.owner-admin-row strong{display:block;font-size:11px;color:var(--text);overflow-wrap:anywhere}
+.owner-admin-row small{display:block;font-size:8px;letter-spacing:.1em;color:var(--soft);margin-top:6px}
+.owner-admin-row button{font-size:9px;padding:8px 10px;background:transparent;border:1px solid var(--line);color:var(--text);cursor:pointer}
+.owner-invite{display:flex;flex-direction:column;gap:12px}
+.owner-invite label{display:flex;flex-direction:column;gap:7px;font-size:10px;color:var(--muted)}
+.owner-invite input,.owner-invite select{padding:12px;background:var(--bg);border:1px solid var(--line);color:var(--text)}
+.owner-invite .button-dark{align-self:flex-start;display:flex;align-items:center;gap:8px}
+.pending-title{margin-top:35px!important}
+.permission-note{font-size:10px;line-height:1.8;color:var(--soft);margin-top:24px}
+.auth-links{display:flex;justify-content:space-between;gap:15px;margin-top:18px;flex-wrap:wrap}
+.auth-links button{border:0;background:none;color:var(--accent);font-size:10px;text-decoration:underline;cursor:pointer;padding:4px 0}
+.maintenance-screen{min-height:100vh;background:var(--bg);color:var(--text);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:10% 12%}
+.maintenance-screen h1{font:500 clamp(54px,8vw,100px)/1 'Playfair Display',serif;margin:30px 0}
+.maintenance-screen h1 em{color:var(--accent);font-weight:500}
+.maintenance-screen p{color:var(--muted);font-size:14px;line-height:1.8}
+.maintenance-loading{min-height:100vh;display:grid;place-items:center;font:40px 'Playfair Display',serif;color:var(--accent)}
+@media(max-width:700px){.owner-panel{padding:20px}.owner-summary{grid-template-columns:1fr}.owner-admin-grid{grid-template-columns:1fr}.owner-panel-heading h2{font-size:25px}.owner-admin-row{align-items:flex-start}.maintenance-screen{padding:12% 7%}}
