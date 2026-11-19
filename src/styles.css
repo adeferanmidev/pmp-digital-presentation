@@ -159,3 +159,6 @@ body{background:var(--bg);color:var(--text);transition:background .25s,color .25
 .maintenance-screen p{color:var(--muted);font-size:14px;line-height:1.8}
 .maintenance-loading{min-height:100vh;display:grid;place-items:center;font:40px 'Playfair Display',serif;color:var(--accent)}
 @media(max-width:700px){.owner-panel{padding:20px}.owner-summary{grid-template-columns:1fr}.owner-admin-grid{grid-template-columns:1fr}.owner-panel-heading h2{font-size:25px}.owner-admin-row{align-items:flex-start}.maintenance-screen{padding:12% 7%}}
+
+.admin-access-actions{display:flex;align-items:center;gap:7px}
+.admin-access-actions select{max-width:125px;background:var(--bg);color:var(--text);border:1px solid var(--line);padding:8px;font-size:9px}
