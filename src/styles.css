@@ -308,3 +308,12 @@ input,textarea,select{max-width:100%;min-width:0}
 @media (prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+@media (min-width:621px) and (max-width:1100px){
+ .header{padding-inline:4%}
+ .mobile-menu{display:block}
+ .nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--bg);padding:24px 5%;flex-direction:column;align-items:stretch;gap:20px;border-bottom:1px solid var(--line);max-height:calc(100dvh - 76px);overflow-y:auto}
+ .nav.nav-open{display:flex}
+ .nav a,.nav .nav-cta{width:100%}
+ .nav .theme-control summary{display:flex}
+}
