@@ -5,7 +5,7 @@ import { supabase } from './lib/supabase'
 import type { Story } from './types'
 
 const demoStories: Story[] = [
-  { id:'1', slug:'the-quiet-work-of-becoming', title:'The Quiet Work of Becoming', subtitle:'A life shaped by conviction, service and the courage to begin again.', subject_name:'A story in progress', category:'Faith & Purpose', cover_image:'https://images.unsplash.com/photo-1713849404215-201d6b4ac9f3?auto=format&fit=crop&w=1800&q=85', excerpt:'Every meaningful journey has a part the world never sees. This is where we begin: with the choices, disciplines and unseen seasons that shape a life.', status:'published', featured:true },
+  { id:'1', slug:'the-quiet-work-of-becoming', title:'The Quiet Work of Becoming', subtitle:'A life shaped by conviction, service and the courage to begin again.', subject_name:'A story in progress', category:'Faith & Purpose', cover_image:'https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1200&q=88', excerpt:'Every meaningful journey has a part the world never sees. This is where we begin: with the choices, disciplines and unseen seasons that shape a life.', status:'published', featured:true },
   { id:'2', slug:'hands-that-build', title:'Hands That Build', subtitle:'On work, patience and making something that outlives you.', subject_name:'People & Enterprise', category:'Enterprise', cover_image:'https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=1200&q=85', excerpt:'A reflection on the patient work of building, and the people whose contribution becomes part of a community’s foundation.', status:'published', featured:false },
   { id:'3', slug:'the-shape-of-a-calling', title:'The Shape of a Calling', subtitle:'Finding meaning in the work only you can do.', subject_name:'Perspectives', category:'Culture', cover_image:'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1200&q=85', excerpt:'A conversation about purpose, responsibility and the small decisions that slowly reveal a larger direction.', status:'published', featured:false }
 ]
@@ -39,7 +39,7 @@ function Home() {
  const filtered=useMemo(()=>stories.filter(s=>(category==='All stories'||s.category===category)&&[s.title,s.subject_name,s.excerpt,s.category].join(' ').toLowerCase().includes(query.toLowerCase())),[stories,query,category])
  const feature=stories.find(s=>s.featured)||stories[0]
  const portraits=[
-  {src:'https://images.unsplash.com/photo-1713849404215-201d6b4ac9f3?auto=format&fit=crop&w=1000&q=85',alt:'Black and white portrait of an older African woman',caption:'THE WISDOM OF EXPERIENCE',name:'A life in perspective'},
+  {src:'https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1000&q=85',alt:'Editorial portrait of a Black man in a dark turtleneck',caption:'THE PRESENCE OF EXPERIENCE',name:'A life in perspective'},
   {src:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=85',alt:'Portrait of a man',caption:'THE WORK OF BECOMING',name:'The people behind the work'},
   {src:'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1000&q=85',alt:'Portrait of a Black woman',caption:'A VOICE OF HER OWN',name:'Identity, memory and purpose'}
  ]
@@ -47,7 +47,7 @@ function Home() {
  <section className="cinema-hero">
   <div className="hero-topline"><span>AN INDEPENDENT HUMAN STORY ARCHIVE</span><span>VOL. 01 — 2026</span></div>
   <div className="hero-frame">
-   <div className="hero-visual"><img src={settings.hero_image||"https://images.unsplash.com/photo-1713849404215-201d6b4ac9f3?auto=format&fit=crop&w=1800&q=90"} alt="Monochrome documentary portrait"/><div className="hero-visual-shade"></div><span className="hero-photo-credit">PORTRAIT STUDY / VISUAL REFERENCE</span></div>
+   <div className="hero-visual"><img src={settings.hero_image||"https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1800&q=90"} alt="Monochrome documentary portrait"/><div className="hero-visual-shade"></div><span className="hero-photo-credit">PORTRAIT STUDY / VISUAL REFERENCE</span></div>
    <div className="hero-title"><span className="eyebrow">PEOPLE. PERSPECTIVES. LEGACY.</span><h1>{settings.hero_line_one||"Every life"}<br/>{settings.hero_line_two||"leaves a"} <em>{settings.hero_highlight||"mark."}</em></h1><p>{settings.hero_intro||"We document the people behind the moments, the conviction behind the work, and the lessons that deserve to outlive the telling."}</p><a className="hero-discover" href="#journal">ENTER THE JOURNAL <ArrowDown size={16}/></a></div>
    <div className="hero-side-note">STORIES BEHIND THE PEOPLE<br/>LESSONS BEYOND THE JOURNEY</div>
   </div>
