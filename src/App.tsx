@@ -3,6 +3,7 @@ import { Link, Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Menu, Search, X, Sun, Moon, Monitor, Settings2, Plus, Trash2, ShieldCheck, BookOpen, Image as ImageIcon, FileText, Users, Globe, Activity, Eye, PenLine, Lock, LogOut } from 'lucide-react'
 import { supabase } from './lib/supabase'
 import type { Story } from './types'
+import { ExperienceLayer } from './ExperienceLayer'
 
 const demoStories: Story[] = [
   { id:'1', slug:'the-quiet-work-of-becoming', title:'The Quiet Work of Becoming', subtitle:'A life shaped by conviction, service and the courage to begin again.', subject_name:'A story in progress', category:'Faith & Purpose', cover_image:'https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1200&q=88', excerpt:'Every meaningful journey has a part the world never sees. This is where we begin: with the choices, disciplines and unseen seasons that shape a life.', status:'published', featured:true },
@@ -153,5 +154,5 @@ function Admin() {
 export default function App(){
  const [theme,setTheme]=useState<ThemeName>(()=>(localStorage.getItem('pmp-theme') as ThemeName)||'system')
  useEffect(()=>{document.documentElement.dataset.theme=theme;localStorage.setItem('pmp-theme',theme)},[theme])
- return <ThemeContext.Provider value={{theme,setTheme}}><Routes><Route path="/" element={<MaintenanceGate><Home/></MaintenanceGate>}/><Route path="/stories/:slug" element={<MaintenanceGate><StoryPage/></MaintenanceGate>}/><Route path="/admin" element={<Admin/>}/><Route path="/contact" element={<MaintenanceGate><ContactPage/></MaintenanceGate>}/><Route path="*" element={<Home/>}/></Routes></ThemeContext.Provider>
+ return <ThemeContext.Provider value={{theme,setTheme}}><ExperienceLayer/><Routes><Route path="/" element={<MaintenanceGate><Home/></MaintenanceGate>}/><Route path="/stories/:slug" element={<MaintenanceGate><StoryPage/></MaintenanceGate>}/><Route path="/admin" element={<Admin/>}/><Route path="/contact" element={<MaintenanceGate><ContactPage/></MaintenanceGate>}/><Route path="*" element={<Home/>}/></Routes></ThemeContext.Provider>
 }
