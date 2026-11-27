@@ -178,3 +178,14 @@ html[data-motion="ready"] .pmp-reveal:not(.is-revealed) { opacity: 0; transform:
   .pmp-reveal, html[data-motion="ready"] .pmp-reveal:not(.is-revealed) { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-visual img, .portrait-tile img, .journal-card-image img { transform: none !important; }
 }
+
+/* Route-aware navigation and hero entrance */
+.nav.nav-open { position:fixed; inset:0; z-index:85; display:flex; justify-content:center; padding:clamp(100px,14vh,150px) var(--pmp-gutter) 8vh; background:var(--bg); border:0; max-height:100svh; overflow-y:auto; }
+.nav.nav-open a { font:500 clamp(2.1rem,6vw,5rem)/1.05 'Playfair Display',serif; letter-spacing:-.04em; }
+.nav.nav-open .theme-control summary { font:500 10px/1 'DM Sans',sans-serif; }
+.mobile-menu { position:relative; z-index:95; }
+.hero-title .eyebrow, .hero-title h1, .hero-title p, .hero-discover { animation:pmp-rise 900ms var(--pmp-ease) both; }
+.hero-title h1 { animation-delay:90ms; } .hero-title p { animation-delay:180ms; } .hero-discover { animation-delay:260ms; }
+@keyframes pmp-rise { from { opacity:0; transform:translate3d(0,22px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
+@media (max-width:1100px) { .nav.nav-open { align-items:flex-start; gap:clamp(16px,3vh,28px); } .nav.nav-open .theme-control { margin-top:12px; } .nav.nav-open .nav-cta { width:fit-content; font:600 10px/1 'DM Sans',sans-serif; } }
+@media (prefers-reduced-motion:reduce) { .hero-title .eyebrow, .hero-title h1, .hero-title p, .hero-discover { animation:none!important; } }
