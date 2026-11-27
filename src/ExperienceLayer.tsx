@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 /**
  * Lightweight shared interaction layer for the PMP editorial experience.
  * Uses native browser primitives so the publication stays fast on mobile networks.
  */
 export function ExperienceLayer() {
+  const { pathname } = useLocation()
   useEffect(() => {
     const root = document.documentElement
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -93,18 +95,18 @@ export function ExperienceLayer() {
       if (introTimer) window.clearTimeout(introTimer)
       root.classList.remove('pmp-intro-playing')
     }
-  }, [])
+  }, [pathname])
 
   return <>
     <div className="pmp-scroll-progress" aria-hidden="true" />
     <div className="pmp-cursor" aria-hidden="true"><span data-cursor-label>VIEW</span></div>
     <div className="pmp-intro" aria-hidden="true"><span className="pmp-intro-mark">P.</span><span>PHOTOGRAPHING<br />MONUMENTAL PEOPLE</span></div>
-    <nav className="pmp-section-index" aria-label="Page sections">
+    {pathname === '/' && <nav className="pmp-section-index" aria-label="Page sections">
       <a href="#perspective" aria-label="Editorial premise">01</a>
       <a href="#journal" aria-label="Journal">02</a>
       <a href="#archive" aria-label="Archive">03</a>
       <a href="#about-pmp" aria-label="Editorial position">04</a>
       <a href="#submit" aria-label="Nominate a person">05</a>
-    </nav>
+    </nav>}
   </>
 }
